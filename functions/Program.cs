@@ -15,12 +15,22 @@ namespace functions
             return vragen[index];
         }
 
+        // ✔️ Nieuw: random vraag functie
         internal string GetRandomVraag()
         {
-            // gebruik Random
             Random rnd = new Random();
-            int index = rnd.Next(vragen.Length); // random index
+            int index = rnd.Next(vragen.Length);
             return GetVraag(index);
+        }
+
+        // ✔️ Nieuw: random vraag stellen aan de gebruiker
+        internal void AskRandomQuestion()
+        {
+            string vraag = GetRandomVraag();
+            Console.WriteLine(vraag);
+
+            string antwoord = Console.ReadLine() ?? "";
+            Console.WriteLine("Je antwoord was: " + antwoord);
         }
 
         static void Main(string[] args)
@@ -33,6 +43,13 @@ namespace functions
         {
             Console.WriteLine("Hopelijk werkt de functie");
 
+            // ✔️ 4 random vragen stellen
+            AskRandomQuestion();
+            AskRandomQuestion();
+            AskRandomQuestion();
+            AskRandomQuestion();
+
+            // jouw originele code blijft staan:
             Vraag1();
             Vraag2();
             Vraag3();
@@ -43,11 +60,7 @@ namespace functions
             string antwoord7 = Vraag7();
             Console.WriteLine("Het antwoord op Vraag7 is: " + antwoord7);
 
-            // Example usage of GetVraag:
             Console.WriteLine("Voorbeeld vraag uit array: " + GetVraag(0));
-
-            // Example usage of GetRandomVraag:
-            Console.WriteLine("Random vraag: " + GetRandomVraag());
         }
 
         internal void Vraag1()
