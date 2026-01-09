@@ -13,33 +13,32 @@ namespace Lists
 
         void Run()
         {
-            string[] characters =
+            List<double> reviews = new List<double>()
             {
-                "Pac-Man",
-                "Samus",
-                "Crash Bandicoot",
-                "Spyro the Dragon",
-                "Donkey Kong",
-                "Mario",
-                "Luigi",
-                "Astro",
-                "Solid Snake",
-                "Master Chief",
-                "Kratos",
-                "Sonic the Hedgehog",
-                "Link"
+                9.99,
+                4.68,
+                342.97,
+                12.2
             };
 
-            List<string> characterList = new List<string>();
-
-            foreach (string character in characters)
+            
+            foreach (double review in reviews)
             {
-                characterList.Add(character);
+                Console.WriteLine(review);
             }
 
-            foreach (string character in characterList)
+            Console.WriteLine("----");
+
+            
+            reviews.Remove(342.97);
+
+            
+            reviews.RemoveAt(0);
+
+           
+            foreach (double review in reviews)
             {
-                Console.WriteLine(character);
+                Console.WriteLine(review);
             }
         }
     }
