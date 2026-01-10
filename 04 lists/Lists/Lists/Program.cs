@@ -13,32 +13,33 @@ namespace Lists
 
         void Run()
         {
-            List<double> reviews = new List<double>()
-            {
-                9.99,
-                4.68,
-                342.97,
-                12.2
-            };
+            
+            List<Pickup> pickups = new List<Pickup>();
 
             
-            foreach (double review in reviews)
+            for (int i = 0; i < 10; i++)
             {
-                Console.WriteLine(review);
+                Pickup pickup = new Pickup
+                {
+                    x = i,
+                    y = 0
+                };
+
+                pickups.Add(pickup);
             }
 
-            Console.WriteLine("----");
-
             
-            reviews.Remove(342.97);
-
-            
-            reviews.RemoveAt(0);
-
-           
-            foreach (double review in reviews)
+            for (int i = pickups.Count - 1; i >= 0; i--)
             {
-                Console.WriteLine(review);
+                if (pickups[i].x == 4)
+                {
+                    Console.WriteLine("removed pickup 4");
+                    pickups.RemoveAt(i);
+                }
+                else
+                {
+                    Console.WriteLine($"pickup {pickups[i].x} is still there");
+                }
             }
         }
     }
