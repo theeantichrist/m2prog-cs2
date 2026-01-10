@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Lists
 {
@@ -13,34 +14,38 @@ namespace Lists
 
         void Run()
         {
-            
-            List<Pickup> pickups = new List<Pickup>();
+            List<Mob> mobs = new List<Mob>();
+
+            mobs.Add(new Mob());
+            mobs.Add(new Mob());
+            mobs.Add(new Mob());
+
+            Random rand = new Random();
 
             
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 100; i++)
             {
-                Pickup pickup = new Pickup
+                foreach (Mob mob in mobs)
                 {
-                    x = i,
-                    y = 0
-                };
+                    int randomNumber = rand.Next(0, 100);
 
-                pickups.Add(pickup);
+                    if (randomNumber < 30)
+                    {
+                        mob.TakeDamage(1);
+                    }
+                }
             }
 
             
-            for (int i = pickups.Count - 1; i >= 0; i--)
+            List<Mob> defeated = mobs.Where(mob => mob.isDead).ToList();
+
+            Console.WriteLine("Verslagen mobs:");
+            foreach (Mob mob in defeated)
             {
-                if (pickups[i].x == 4)
-                {
-                    Console.WriteLine("removed pickup 4");
-                    pickups.RemoveAt(i);
-                }
-                else
-                {
-                    Console.WriteLine($"pickup {pickups[i].x} is still there");
-                }
+                Console.WriteLine($"HP: {mob.hp}, Dead: {mob.isDead}");
             }
         }
-    }
-}
+    }}
+
+
+            
