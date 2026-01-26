@@ -1,4 +1,4 @@
-namespace LesUur
+namespace Rijschool
 {
     internal class LesUur
     {
