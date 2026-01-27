@@ -15,7 +15,7 @@ class Program
 
         if (!File.Exists("quiz.txt"))
         {
-            Console.WriteLine("quiz.txt");
+            Console.WriteLine("quiz.txt niet gevonden!");
             return;
         }
 
